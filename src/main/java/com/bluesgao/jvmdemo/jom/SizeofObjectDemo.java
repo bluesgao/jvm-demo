@@ -2,7 +2,7 @@ package com.bluesgao.jvmdemo.jom;
 
 /**
  * 环境：win10x64,jdk8x64
- *
+ * <p>
  * 计算一个对象的占用内存的大小
  * <p>
  * 1，压缩指针
@@ -35,53 +35,57 @@ package com.bluesgao.jvmdemo.jom;
  * 数组对象头+数组元素个数*大小
  */
 public class SizeofObjectDemo {
-    /**
-     * -XX:+UseCompressedOops: mark/8 + metedata/4  = 16
-     * -XX:-UseCompressedOops: mark/8 + metedata/8  = 16
-     */
     static class DemoObj {
     }
 
-    /**
-     * -XX:+UseCompressedOops: mark/8 + metedata/4 + 4 = 16
-     * -XX:-UseCompressedOops: mark/8 + metedata/8 + 4 + padding/4 = 24
-     */
     static class DemoInt {
         int i;//原生类型
     }
 
-    /**
-     * -XX:+UseCompressedOops: mark/8 + metedata/4 + 4 = 16
-     * -XX:-UseCompressedOops: mark/8 + metedata/8 + 8 = 24
-     */
     static class DemoInteger {
         Integer integer;//引用类型
     }
 
-    /**
-     * -XX:+UseCompressedOops: mark/8 + metedata/4 + 4 + 4 + padding/4 = 24
-     * -XX:-UseCompressedOops: mark/8 + metedata/8 + 4 + 8 + padding/4 = 32
-     */
     static class DemoIntegerAndInt {
         int i;
         Integer integer;//引用类型
     }
 
-    /**
-     * -XX:+UseCompressedOops: mark/8 + metedata/4 + 4 + 4 + padding/4 = 24
-     * -XX:-UseCompressedOops: mark/8 + metedata/8 + 8 + 8 = 32
-     */
     static class DemoExtend extends DemoInteger {
         Double d;//引用类型
     }
 
     public static void main(String[] args) throws Exception {
         System.out.println("test start");
-
+        ////////////////////////////对象//////////////////////////
+        /**
+         * -XX:+UseCompressedOops: (mark/8 + metedata/4)  = 16
+         * -XX:-UseCompressedOops: (mark/8 + metedata/8)  = 16
+         */
         DemoObj obj = new DemoObj();
+
+        /**
+         * -XX:+UseCompressedOops: (mark/8 + metedata/4) + (4) = 16
+         * -XX:-UseCompressedOops: (mark/8 + metedata/8) + (4) + (padding/4) = 24
+         */
         DemoInt a = new DemoInt();
+
+        /**
+         * -XX:+UseCompressedOops: (mark/8 + metedata/4) + (4) = 16
+         * -XX:-UseCompressedOops: (mark/8 + metedata/8) + (8) = 24
+         */
         DemoInteger b = new DemoInteger();
+
+        /**
+         * -XX:+UseCompressedOops: (mark/8 + metedata/4) + (4 + 4) + (padding/4) = 24
+         * -XX:-UseCompressedOops: (mark/8 + metedata/8) + (4 + 8) + (padding/4) = 32
+         */
         DemoIntegerAndInt c = new DemoIntegerAndInt();
+
+        /**
+         * -XX:+UseCompressedOops: (mark/8 + metedata/4) + (4 + 4) + (padding/4) = 24
+         * -XX:-UseCompressedOops: (mark/8 + metedata/8) + (8 + 8) = 32
+         */
         DemoExtend d = new DemoExtend();
 
         /**
@@ -91,6 +95,7 @@ public class SizeofObjectDemo {
         Integer[] arrayInteger = new Integer[1];
         arrayInteger[0] = 1212;
 
+        ////////////////////////////数组//////////////////////////
         /**
          * -XX:+UseCompressedOops: (mark/8 + metedata/4 + length/4) +(4 +4) = 24
          * -XX:-UseCompressedOops: (mark/8 + metedata/8 + length/4) +(8 +8) +padding/4) = 40
@@ -115,12 +120,14 @@ public class SizeofObjectDemo {
         arrayLong[0] = 8888;
         arrayLong[1] = 9999;
 
+        ////////////////////////////字符串//////////////////////////
         /**
          * String包含2个属性，一个用于存放字符串数据的char[], 一个int类型的hashcode
          * -XX:+UseCompressedOops: (mark/8 + metedata/4) +(4 +4) + (padding/4)= 24
          * -XX:-UseCompressedOops: (mark/8 + metedata/8) +(8 +4) +(padding/4) = 32
          */
         String str = new String("hello world");
+
 
         Thread.sleep(10 * 60 * 1000);
         System.out.println("test end");
