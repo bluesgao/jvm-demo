@@ -3,17 +3,18 @@ package com.bluesgao.jvmdemo.jom;
 /**
  * 计算一个对象的占用内存的大小
  * <p>
- * 压缩指针
+ * 1，压缩指针
  * -XX:-UseCompressedOops（关闭）
  * -XX:+UseCompressedOops（开启-在64位操作系统默认开启）
  * -XX:+PrintFlagsFinal （打印jvm参数）
  * <p>
- * java对象在jvm中的内存结构（总大小为8的倍数）
- * 1，header(mark,klass_pointer)
- * 占用16字节，如果开启指针压缩占用12字节
- * 2,instance data
- * 3,padding
+ * 2，java对象在jvm中的内存结构（总大小为8的倍数）
+ * ①header(mark,类型指针-metadata)占用16字节，如果开启指针压缩占用12字节
+ * ②instance data
+ * ③padding
  * <p>
+ *
+ * 类型占用内存大小
  * ①原生类型(primitive type)的内存占用如下：
  * PrimitiveType	MemoryRequired(bytes)
  * boolean          1
@@ -24,7 +25,7 @@ package com.bluesgao.jvmdemo.jom;
  * float            4
  * long             8
  * double    	    8
- * ②引用类型在32位系统上每个占用4bytes，在64位系统上每个占用8bytes,开启指针压缩后占用4bytes。
+ * ②引用类型在32位系统上每个占用4bytes，在64位系统上每个占用8bytes(开启指针压缩后占用4bytes)。
  */
 public class SizeofObjectDemo {
     /**
@@ -76,7 +77,7 @@ public class SizeofObjectDemo {
         DemoIntegerAndInt c = new DemoIntegerAndInt();
         DemoExtend d = new DemoExtend();
 
-        Thread.sleep(600 * 1000);
+        Thread.sleep(10 * 60 * 1000);
         System.out.println("test end");
 
     }
