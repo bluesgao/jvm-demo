@@ -1,6 +1,8 @@
 package com.bluesgao.jvmdemo.jom;
 
 /**
+ * 环境：win10x64,jdk8x64
+ *
  * 计算一个对象的占用内存的大小
  * <p>
  * 1，压缩指针
