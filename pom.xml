@@ -8,5 +8,14 @@
     <artifactId>jvm-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <!-- 打印java 对象头 -->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.9</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
