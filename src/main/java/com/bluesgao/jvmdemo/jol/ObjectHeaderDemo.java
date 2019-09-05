@@ -1,4 +1,4 @@
-package com.bluesgao.jvmdemo.jom;
+package com.bluesgao.jvmdemo.jol;
 
 import org.openjdk.jol.info.ClassLayout;
 

@@ -1,4 +1,4 @@
-package com.bluesgao.jvmdemo.jom;
+package com.bluesgao.jvmdemo.jol;
 
 /**
  * 环境：win10x64,jdk8x64
@@ -34,7 +34,7 @@ package com.bluesgao.jvmdemo.jom;
  * ③数组类型
  * 数组对象头+数组元素个数*大小
  */
-public class SizeofObjectDemo {
+public class ObjectSizeDemo {
     static class DemoObj {
     }
 
