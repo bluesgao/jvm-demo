@@ -5,6 +5,7 @@ import org.openjdk.jol.info.ClassLayout;
 /**
  * 输出对象头信息
  * https://www.cnblogs.com/LemonFive/p/11246086.html
+ * https://blog.csdn.net/shihlei/article/details/84914901
  */
 public class ObjectHeaderDemo {
     static class A {
