@@ -2,6 +2,7 @@ package com.bluesgao.jvmdemo.gc;
 
 /**
  * https://www.jianshu.com/p/580f17760f6e
+ * https://www.jianshu.com/p/20bd2e9b1f03
  * https://www.iteye.com/blog/rednaxelafx-659108
  *
  * 逃逸分析
