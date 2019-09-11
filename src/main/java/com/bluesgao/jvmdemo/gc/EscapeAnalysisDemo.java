@@ -2,12 +2,14 @@ package com.bluesgao.jvmdemo.gc;
 
 /**
  * https://www.jianshu.com/p/580f17760f6e
+ * https://www.iteye.com/blog/rednaxelafx-659108
  *
  * 逃逸分析
  * 发生逃逸行为的情况有两种：方法逃逸和线程逃逸。
  * 1、方法逃逸：当一个对象在方法中定义之后，作为参数传递到其它方法中；
  * 2、线程逃逸：如类变量或实例变量，可能被其它线程访问到；
  * -XX:+DoEscapeAnalysis开启逃逸分析
+ * -XX:+PrintEscapeAnalysis 开启逃逸分析后，可通过此参数查看分析结果(jvm-debug)
  * <p>
  * 标量替换
  * 1、标量是指不可分割的量，如java中基本数据类型和reference类型，相对的一个数据可以继续分解，称为聚合量；
@@ -15,6 +17,8 @@ package com.bluesgao.jvmdemo.gc;
  * 3、如果逃逸分析发现一个对象不会被外部访问，并且该对象可以被拆散，那么经过优化之后，并不直接生成该对象，而是在栈上创建若干个成员变量；
  * -XX:+EliminateAllocations开启标量替换（默认开启）
  * -XX:+PrintEliminateAllocations查看标量替换情况
+ *  -XX:+PrintCompilation(jvm-debug)
+ *  -XX:+PrintInlining(jvm-debug)
  * <p>
  * 栈上分配
  * 故名思议就是在栈上分配对象，其实目前Hotspot并没有实现真正意义上的栈上分配，实际上是标量替换。
