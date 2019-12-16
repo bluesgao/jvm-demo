@@ -14,7 +14,7 @@ public class CacheLineTest {
                 arr[i][j] = i + j;////注意
             }
         }
-        //51ms, 由于数据是按照行放的，按行遍历，下一条数据大概率在Cache line中，因而耗时较短。
+        //51ms, 由于数组在内存里是连续存放的,数据是按照行放的，按行遍历，下一条数据大概率在Cache line中，因而耗时较短。
         System.out.println("time =" + (System.currentTimeMillis() - start1));
 
 
