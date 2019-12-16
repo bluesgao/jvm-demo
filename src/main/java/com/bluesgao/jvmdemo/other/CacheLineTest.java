@@ -2,7 +2,7 @@ package com.bluesgao.jvmdemo.other;
 
 /**
  * 给一个大二维数组赋值
- * 知识点：缓存行
+ * 知识点：缓存行,空间局部性
  */
 public class CacheLineTest {
     public static void main(String[] args) {
