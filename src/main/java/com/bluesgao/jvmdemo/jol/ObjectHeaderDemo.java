@@ -6,6 +6,7 @@ import org.openjdk.jol.info.ClassLayout;
  * 输出对象头信息
  * https://www.cnblogs.com/LemonFive/p/11246086.html
  * https://blog.csdn.net/shihlei/article/details/84914901
+ * http://openjdk.java.net/groups/hotspot/docs/HotSpotGlossary.html
  *
  * Java对象的对象头由 mark_word 和  klass_pointer部分组成。
  *
