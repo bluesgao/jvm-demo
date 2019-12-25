@@ -11,6 +11,7 @@ import org.openjdk.jol.info.ClassLayout;
  * Java对象的对象头由 mark_word 和  klass_pointer部分组成。
  *
  * 以64位操作系统为例，对象头存储内容图例
+ * LP64位机器（L-long,P-pointer）
  * 64位JVM会默认使用选项 +UseCompressedOops开启指针压缩，将指针压缩至32位，如果开启指针压缩，那么object header占用96bits，
  * 其中mark word（64bits），klass pointer（32bits）。
  * |--------------------------------------------------------------------------------------------------------------|
