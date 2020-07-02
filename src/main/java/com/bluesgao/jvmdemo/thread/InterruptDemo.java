@@ -40,7 +40,7 @@ public class InterruptDemo {
         System.out.println("main thread end...");
     }
 
-    public static class Worker implements Runnable {
+    private static class Worker implements Runnable {
         @Override
         public void run() {
             System.out.println("worker thread start....");
