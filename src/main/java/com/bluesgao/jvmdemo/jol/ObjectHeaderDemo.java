@@ -60,11 +60,12 @@ public class ObjectHeaderDemo {
     }
 
     public static void main(String[] args) {
-        A a = new A();
-        System.out.println(ClassLayout.parseInstance(a).toPrintable());
-        System.out.println("=============hashCode:"+a.hashCode()+"======"+Integer.toHexString(a.hashCode()));
+//        A a = new A();
+//        System.out.println(ClassLayout.parseInstance(a).toPrintable());
+//        System.out.println("=============hashCode:"+a.hashCode()+"======"+Integer.toHexString(a.hashCode()));
+//        System.out.println(ClassLayout.parseInstance(a).toPrintable());
 
-        System.out.println(ClassLayout.parseInstance(a).toPrintable());
 
+        System.out.println(ClassLayout.parseInstance(new Integer(1)).toPrintable());
     }
 }
