@@ -1,5 +1,6 @@
 package com.bluesgao.jvmdemo.loader;
 
+//静态变量初始化顺序
 class ClassLoadStaicVariableSort {
     static {
         System.out.println("ClassLoadStaicVariableSort静态代码块1");
