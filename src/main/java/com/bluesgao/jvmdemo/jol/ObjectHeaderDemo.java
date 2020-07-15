@@ -12,7 +12,7 @@ import org.openjdk.jol.info.ClassLayout;
  *
  * 以64位操作系统为例，对象头存储内容图例
  * LP64位机器（L-long,P-pointer）
- * 64位JVM会默认使用选项 +UseCompressedOops开启指针压缩，将指针压缩至32位，如果开启指针压缩，那么object header占用96bits，
+ * 64位JVM会默认使用选项 +UseCompressedOops开启指针压缩，将指针压缩至32位，如果开启指针压缩，那么object header占用96bits（12字节），
  * 其中mark word（64bits），klass pointer（32bits）。
  * |--------------------------------------------------------------------------------------------------------------|
  * |                                              Object Header (128 bits)                                        |
@@ -47,7 +47,7 @@ import org.openjdk.jol.info.ClassLayout;
  * |0          |11  |GC标记 |
  * --------------------------
  * age：JavaGC标记位对象年龄。
- * identity_hashcode：对象标识Hash码，采用延迟加载技术。当对象使用HashCode()计算后，并会将结果写到该对象头中。当对象被锁定时，该值会移动到线程Monitor中。
+ * identity_hashcode：对象标识Hash码，采用延迟加载技术。当调用对象的hashCode()方法后，并会将结果写到该对象头中。当对象被锁定时，该值会移动到线程Monitor中。
  * thread：持有偏向锁的线程ID和其他信息。这个线程ID并不是JVM分配的线程ID号，和Java Thread中的ID是两个概念。
  * epoch：偏向时间戳。
  * ptr_to_lock_record：指向栈中锁记录的指针。

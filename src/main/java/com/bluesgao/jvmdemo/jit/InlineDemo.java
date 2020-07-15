@@ -1,7 +1,7 @@
 package com.bluesgao.jvmdemo.jit;
 
 /**
- *-XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:+PrintFlagsFinal and -XX:+PrintFlagsInitial
+ *-XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:+PrintFlagsFinal -XX:+PrintFlagsInitial
  -XX:+PrintCompilation 在控制台打印编译过程信息
  -XX:+UnlockDiagnosticVMOptions 解锁对JVM进行诊断的选项参数。默认是关闭的，开启后支持一些特定参数对JVM进行诊断
  -XX:+PrintInlining 将内联方法打印出来
