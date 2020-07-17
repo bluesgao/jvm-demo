@@ -27,6 +27,9 @@ class Son extends Father {
 
 public class ClassLoadInheritDemo {
     public static void main(String[] args) {
-        Son son = new Son();
+        //当初始化一个类时，发现其父类还未初始化，则先触发父类的初始化
+        //Son son = new Son();
+        //通过子类引用父类中的静态字段，这时对子类的引用为被动引用，因此不会初始化子类，只会初始化父类
+        System.out.println(Father.fatherAge);
     }
 }
